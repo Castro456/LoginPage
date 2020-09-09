@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignIn</title>
+</head>
+<body>
+    <form action="signin.php" method="post">
+        <h1>Sign In</h1>
+    <label for="firstname"><b>FirstName</b></label>
+    <Input type="text" name="firstname" placeholder="Enter your First Name" required>
+    <br><br>
+    
+    <label for="lastname"><b>LastName</b></label>
+    <Input type="text" name="lastname" placeholder="Enter your Last Name" required>
+    <br><br>
+
+    <label for="username"><b>UserName</b></label>
+    <Input type="text" name="usr" placeholder="Give a UserName" required>
+    <br><br>
+
+    <label for="password"><b>Password</b></label>
+    <Input type="password" name="psr" placeholder="Set a Password" required > 
+    
+    <br><br>   
+
+    <label for="Date of Birth"><b>Date of Birth</b></label>
+    <Input type="date" name="dob" required> 
+    
+    <br><br>
+
+    <label for="Age"><b>Age</b></label>
+    <Input type="number" min="1" oninput="this.value = Math.abs(this.value)"  name="age" placeholder="Minimum of 1" required>   
+    <br><br>
+
+    <Input type="submit" name="submit" >
+    <br>
+
+    </form>
+   
+</body>
+</html>
