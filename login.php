@@ -8,7 +8,7 @@ function sec()
         }
     elseif(!isset($_SESSION["usr"]))
        {
-            header("location:index.html");  
+            header("location:index.php");  
        }
 
 }  
