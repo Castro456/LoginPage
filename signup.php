@@ -6,7 +6,7 @@ function sign()
 {
     require_once('signupconfig.php');
     $firstname = $_POST['firstname'];
-    $lastname  = $_POST['lastname'];
+    $email  = $_POST['email'];
     $username= $_POST['usr'];
     $pass_word=$_POST['psr'];
     $pass_word=md5($pass_word);
@@ -15,11 +15,11 @@ function sign()
 
     $length_pass = strlen($_POST['psr']);
     $first =  $_POST['firstname'];
-    $last  = $_POST['lastname'];
+    
 
-    if(!preg_match('/^[a-zA-Z\s]*$/',$first,$last))
+    if(!preg_match('/^[a-zA-Z\s]*$/',$first))
       {
-        echo '<a href="signup.html">Back</a>';
+        echo '<a href="register.php">Back</a>';
         echo '<br>';
         echo '<h1>Enter your Name correctly</h1>';
         echo '<br>';
@@ -28,7 +28,7 @@ function sign()
 
     if($length_pass<6)
     {
-      echo '<a href="signup.html">Back</a>';
+      echo '<a href="register.php">Back</a>';
       echo '<br>';
       echo '<h2>Password is too short, should be 6-15 characters</h2>';
 
@@ -41,9 +41,9 @@ function sign()
     else
     {
 
-    $sql="INSERT into simple_table(firstname, lastname, username, pass_word, dob, age) VALUES(?,?,?,?,?,?)";
+    $sql="INSERT into simple_table(firstname, email, username, pass_word, dob, age) VALUES(?,?,?,?,?,?)";
     $stmtinsert = $db->prepare($sql);
-    $result=$stmtinsert->execute([$firstname, $lastname, $username, $pass_word, $dob, $age]);
+    $result=$stmtinsert->execute([$firstname, $email, $username, $pass_word, $dob, $age]);
     if($result)
     {
         

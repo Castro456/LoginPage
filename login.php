@@ -2,28 +2,31 @@
 session_start();
 function sec()
 {
-    if(isset($_SESSION["usr"]))  
+    if(isset($_SESSION["em"]))  
         {  
             header("location:welcome.php");  
         }
-    elseif(!isset($_SESSION["usr"]))
+    elseif(!isset($_SESSION["em"]))
        {
             header("location:index.php");  
        }
 
-}  
+}  sec();
  
 function check()
     { 
+      
+  
+
+
         if(isset($_POST["submit"]))
         {
         require_once('loginconfig.php');
-        //require('index.html');
-        $username= $_POST['usr'];
+        $email= $_POST['em'];
         $pass_word= $_POST['psr'];
         $pass_word= md5($pass_word);
             
-        $query="SELECT username, pass_word FROM `simple_table` where username ='$username' ";          //AND pass_word = '$pass_word'
+        $query="SELECT email, pass_word FROM `simple_table` where email ='$email' ";          //AND pass_word = '$pass_word'
         $query_run=mysqli_query($con,$query);
         $query_execute=mysqli_fetch_assoc($query_run);
     
@@ -31,15 +34,15 @@ function check()
         
         try    
         {
-        if(empty($username) || empty($pass_word))
-        {
+        // if(empty($email) || empty($pass_word))
+        // {
         
-          echo "Fill the Username and Password";
-          //exit();
-        }
-        else if($checkpass == $pass_word)       // password_verify
+        //   echo "Fill the Username and Password";
+        //   //exit();
+        // }
+        if($checkpass == $pass_word)       // password_verify
         {
-          $_SESSION['usr'] = $username; 
+          $_SESSION['em'] = $email; 
           header("location:welcome.php");
         }
         else
@@ -52,28 +55,16 @@ function check()
            
         //catch exception
         catch(Exception $e) {
-        
+                
         echo '<strong>'."!Error:  ".'</strong>' .$e->getMessage();
-        echo '<a href="index.html">Refresh</a>';
+        echo '<a href="index.php">Refresh</a>';
                
         }
         
         
-    }//check(); 
+    }
   
    
-}
-    
-    //$num = mysqli_num_rows($query_run);
- //login();
+}check();
 
-   
-  function up()
-  {
-    sec();
-    check();
-
-  } up();
- 
-
-  ?>
+?>

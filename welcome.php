@@ -1,9 +1,9 @@
 <?php  
  //entry.php  
  session_start();  
-  if(!isset($_SESSION["usr"]))  
+  if(!isset($_SESSION["em"]))  
  {  
-      header("location:index.html");  
+      header("location:index.php");  
  }  
  ?> 
 
@@ -26,7 +26,7 @@
 <nav class="navbar navbar-light" style="background-color: #d1dbda">
         <a class="navbar-brand" href="home.html">Home</a>
       <!-- <form class="form-inline my-2 my-lg-0"> -->
-      <a class="btn btn-danger my-2 my-sm-0" href="logout.php" role="button">Logout</a>
+      <a class="btn btn-danger my-2 my-sm-0 rounded-pill" href="logout.php" role="button">Logout</a>
                 <!-- </form>   -->
 
     
@@ -35,7 +35,7 @@
 </nav> 
 
      
-     <h1 class="text-correct">WELCOME BACK:<?php echo $_SESSION["usr"] ?></h1>
+     <h1 class="text-correct">WELCOME BACK:<?php echo $_SESSION["em"] ?></h1>
      <!-- <a class="btn btn-danger" href="logout.php" role="button">Logout</a> -->
      
      <!-- <button type="button" class="btn btn-danger"></button> -->
