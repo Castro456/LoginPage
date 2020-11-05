@@ -48,3 +48,7 @@ body
     border-width: 10px ; */
     border-color: #111111; 
 }
+.small
+{
+    color: brown;
+}

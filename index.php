@@ -1,22 +1,14 @@
 <?php
 session_start();
-if(isset($_POST['submit']))
-{
-    
-}
+
 function sec()
-{
-    
-  
+{ 
     if(isset($_SESSION["em"]))  
         {  
-            header("location:login.php");  
+            header("location:welcome.php");  
         }
-        // if(!isset($_SESSION["usr"]))  
-        // {  
-        //     header("location:index.php");  
-        // }
-}  sec();
+
+    }  sec();
 ?>
 
 <!DOCTYPE html>
@@ -33,27 +25,27 @@ function sec()
 <body>
 
 <nav class="navbar navbar-light" style="background-color: #d1dbda">
-        <a class="navbar-brand" href="home.html">Home</a>
-        <form class="form-inline">
-            <!-- <a class="navbar-brand mr-sm-2" href="index.php">Login</a> -->
-          <a class="btn btn-warning my-2 my-sm-0 rounded-pill" href="register.php" role="button">Sign up</a>
-        </form>
-      </nav>
+    <a class="navbar-brand" href="home.html">Home</a>
+    <form class="form-inline">
+    <!-- <a class="navbar-brand mr-sm-2" href="index.php">Login</a> -->
+    <a class="btn btn-warning my-2 my-sm-0 rounded-pill" href="register.php" role="button">Sign up</a>
+    </form>
+    </nav>
     
     <div class="container ">
     <div class="row justify-content-center">  
     <div class="col-md-4">
         
-        <form class="form-container needs-validation" action="login.php" method="post" name="form1"> 
-            <div class="form-group">
+<form class="form-container needs-validation" action="login.php" method="post" name="form1"> 
+    <div class="form-group">
                   
-        <h1 class="text-dark">Login</h1>
-            </div> 
+    <h1 class="text-dark">Login</h1>
+    </div> 
 
         
-            <div class="form-group">
-         <label class="text-dark">Email</label>
-         <input type="text" class="form-control" name="em">
+        <div class="form-group">
+        <label class="text-dark">Email</label>
+        <input type="text" class="form-control" name="em">
          
         </div>
  
@@ -69,35 +61,9 @@ function sec()
 
     </div>
     </div>
-
     </div>
   
 </body>
-<script>
-function ValidateEmail(inputText)
-{
-var x = document.forms["form1"]["em"].value;
-var y = document.forms["form1"]["psr"].value;
-var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-if (x == "" || x == null) 
-{
-    alert("Email must be filled out");
-    return false;
-}
-if (y == "" || y == null) 
-{
-    alert("Password must be filled out");
-    return false;
-}
-if(! inputText.value.match(mailformat))
-{
-alert("InValid email address!");
-document.form1.em.focus();
-return true;
-}
-
-
-}
-
+<script src="js/script.js">
 </script>
 </html>
