@@ -1,25 +1,25 @@
 <?php
-
 session_start();
 if(!isset($_SESSION["em"]))  
 {  
-   
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/global.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Error</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/global.css">
 </head>
+
 <body>
 <nav class="navbar navbar-light" style="background-color: #d1dbda">
-        <a class="navbar-brand " href="register.php">Back</a>
+    <a class="navbar-brand " href="register.php">Back</a>
 </nav>
+
 <h1 class="text-correct">Entered mail address already Exists</h1>
 </body>
 
@@ -29,7 +29,6 @@ else
 {
     header("location:welcome.php");  
 }
-
-
 ?>
+
 </html>

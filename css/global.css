@@ -1,18 +1,15 @@
+
 body
 {
-    background:url(../images/bird1.jpg)no-repeat;
-    /* padding: 800px 300px; */
-    width: 100%;
-    height: 100vh;
-    
-    /* background-position: center; */
-    
-    background-size: 100%;
+      background:url(../images/final.jpeg);
+      /* background-position: initial; */
+      background-repeat: no-repeat;
+      background-size: 100%;
 }
 .form-container
 {
-    position: absolute;
-    top: 14vh;
+    position: fixed ;
+    top: 20vh;
     background-color:transparent !important;
     padding: 60px;
     border-radius: 50px;
@@ -20,7 +17,7 @@ body
 }
 .form-container1
 {
-    position: absolute;
+    position: fixed;
     top: 16vh;
     background-color:transparent !important;
     padding: 70px;
@@ -36,7 +33,7 @@ body
 }
 .log
 {
-    position: absolute;
+    position: fixed;
     padding: 20px;
     top: 20vh;
 }
@@ -51,4 +48,89 @@ body
 .small
 {
     color: brown;
+}
+.button {
+    background-color: #FF6961; 
+    border: none;
+    border-radius: 80px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  .button1 {
+    background-color:#90EE90; 
+    border: none;
+    border-radius: 80px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  .addbtn {
+    background-color: #FFB6C1; 
+    position: absolute ;
+    top: 65%;
+    left: 39%;
+    border: none;
+    border-radius: 40px;
+    color: black;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  .add-container
+{
+    position: fixed;
+    top: 24vh;
+    background-color:transparent !important;
+    padding: 90px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px;
+}
+.form-controladd
+{
+    background-color:transparent;
+    border-radius: 5px;
+    width: 300px;
+    height: 100px;
+    /* border: 10px black;
+    border-width: 10px ; */
+    border-color: #FF6961; 
+}
+.viewbtn
+{
+    background-color: #FF0000; 
+    position: fixed ;
+    /* top: 65%;
+    left: 39%; */
+    border: none;
+    border-radius: 40px;
+    color: black;
+    padding: 8px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.donebtn
+{
+    background-color: #4bcc4b; 
+    position: fixed ;
+    /* top: 65%;
+    left: 39%; */
+    border: none;
+    border-radius: 40px;
+    color: black;
+    padding: 8px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
