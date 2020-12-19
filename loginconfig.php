@@ -10,5 +10,6 @@ mysqli_select_db($con,'mydata');
 $queryforview="SELECT tasks.id, tasks.task, tasks.time_kept, tasks.progress, users.username
 FROM task_table as tasks 
 join users_table as users on tasks.user = users.id";
+$query_run=mysqli_query($con,$queryforview);
 
 ?>

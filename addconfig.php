@@ -1,23 +1,27 @@
 <?php
-if(empty($_POST['add']) )   //|| empty($_POST['add1'])
+$conn =mysqli_connect("localhost","root","giveaccess","mydata");
+
+if(empty($_POST['add1']) )   
 {
-    header("location:add.php");
+   echo"Enter a task to ADD";
 }
-else if(isset($_POST['addbtn']))
+else if(isset($_POST['add1']))
 {
     session_start();
-    require_once('signupconfig.php');
-    $adddata = $_POST['add'];
+    $task = $_POST['add1'];
+    $addedtask = mysqli_real_escape_string($conn,$task);
     $adduser = $_SESSION["id"];
     $addtask = 1;
-    // $query_run=mysqli_query($con,$queryforview);
-    // $query_execute=mysqli_fetch_assoc($query_run);  
-    // $donedata= @$query_execute['tr'];  
-    $sql="INSERT into task_table(task,user,progress)  VALUES(?,?,?) ";
-    $stmtinsert = $db->prepare($sql);
-    $result=$stmtinsert->execute([$adddata,$adduser,$addtask]);
-    header("location:add.php");
+
+    $query="INSERT INTO task_table(task,user,progress) VALUES ('$addedtask','$adduser','$addtask')";
+    if(mysqli_query($conn,$query))
+    {
+    echo "Task Added";
+    }
+    else
+    {
+    echo "Problem occured";
+    }
 }
 
-// FOREIGN KEY ('tr') REFERENCES simple_table('id')
 ?>

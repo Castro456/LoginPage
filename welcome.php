@@ -36,13 +36,13 @@ if(!isset($_SESSION["em"]))
 
 <div class="form-group">
 <form action="add.php" method="post">
-<button class="button" name="add" type="submit" >Add Task</button>
+<button class="button" name="add" >Add Task</button>
 </form>
 </div>
 
 <div class="form-group">
 <form action="view.php" method="post">
-<button class="button1">View,Delete,Update Task</button>
+<button class="button1" id="view" type="submit">View</button>
 </form>
 </div>
 
@@ -50,6 +50,8 @@ if(!isset($_SESSION["em"]))
 </div>
 </div>
 </div>
-
+<script>
+</script>
 </body>
+
 </html>

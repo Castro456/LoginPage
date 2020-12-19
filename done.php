@@ -1,32 +1,18 @@
 <?php
-require 'signupconfig.php';
+$conn =mysqli_connect('localhost','root','giveaccess','mydata');
 
-if(empty($_POST['keytodelete']))
+if(isset($_POST['done']))
 {
-    header("location:view.php");
+    
+    $key= $_POST['done'];
+    $querydone="UPDATE task_table SET progress = 2 WHERE id = $key "; 
+    $value=mysqli_query($conn,$querydone);
+    echo "Task Marked as Done";
+
 }
 
-else if(isset($_POST['submitdone']))
-{
-    //print_r($_POST['keytodelete']);
-    $key = $_POST['keytodelete'];
-    //$addtask = 2;
-    if(is_array($key))
-    {
-        // while($key ==0)
-        // {
-            for($i=0 ; $i <= count($key) ; $i++) {
-                //echo $i;
-                $sql="UPDATE task_table SET progress = 2 WHERE id = $key[$i] ";
-                $stmtinsert = $db->prepare($sql);
-                $result=$stmtinsert->execute();
-                header("location:view.php");
-                
-            } 
-        //}
-
-    }
-
+else{
+    header("location:index.php");
 }
 
 ?>

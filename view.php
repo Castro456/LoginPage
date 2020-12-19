@@ -1,7 +1,6 @@
 <?php
 
 session_start();  
-require 'loginconfig.php';
 
 if(!isset($_SESSION["em"]))  
 {  
@@ -25,69 +24,69 @@ if(!isset($_SESSION["em"]))
 </nav> 
 
 <div class="container ">
-<form action="delete.php" name="viewform" method="post">
 <table class="table table-hover table-light">
+
 <thead class="thead-dark">
 <tr>
-<th colspan="6" ><h1>Tasks</h1></th>
+<th colspan="8" ><h1>Tasks</h1></th>
 </tr>
 <tr>
-  <th scope="col"><input type="checkbox" onClick="toggle(this)"    /> Select</th>
   <th scope="col">#</th>
   <th scope="col">Task</th>
   <th scope="col">Date</th>
   <th scope="col">User</th>
   <th scope="col">Status</th>
+  <th scope="col">Delete</th>
+  <th scope="col">Done</th>
 </tr>
 </thead>
 
-<?php
-if($query_run=mysqli_query($con,$queryforview))
-{
-  while($rows=mysqli_fetch_assoc($query_run))  
-{ ?>
- <tr>
-    <td class="table-secondary"><input type="checkbox" name="keytodelete[]"   value="<?php echo $rows['id']?>" ></td>
-    <td class="table-primary"><?php echo $rows['id'] ?></td>   
-    <td class="table-warning"><?php echo $rows['task'] ?></td>
-    <td class="table-info"><?php echo $rows['time_kept'] ?></td>
-    <td class="table-success"><?php echo $rows['username'] ?></td>
-    <td class="table-dark"><?php echo $rows['progress'] ?></td>
-  </tr>
+<tbody id="table">
 
-<?php
-}
-}
-else
-{?>
-  <div class="alert alert-danger">
-  <p>Whooppss...something went wrong!</p>
-  </div> 
-<?php }
-  ?>  
+</tbody>
 
 </table> 
-
-<div class="d-flex justify-content-between">
-<div>
-<button class="viewbtn" name="submitdelete" type="submit"  onclick="validatecheckbox(document.viewform.keytodelete)">Delete</button>
 </div>
-<div>
-<button class="donebtn"  formaction="done.php" name="submitdone" type="submit" >Done</button> 
-</div>
-</div>
-
-</form> 
-</div>
-</body>
-
+<script src="./js/jquery.js"></script>
 <script>
-function toggle(source) {
-  checkboxes = document.getElementsByName('keytodelete[]');
-  for(var i=0, n=checkboxes.length;i<n;i++) {
-    checkboxes[i].checked = source.checked;
-  }
-}
-</script>
+  $(document).ready(function(){
+    $.ajax({
+    url:"view1.php",
+    type:"POST",
+    success:function(result){
+          $("#table").html(result);
+    }
+  });
 
+  $(document).on("click",".viewbtn", function(){
+    $.ajax({
+    url:"delete.php",
+    type:"POST",
+    data:{
+      delete: $(this).val(),
+    },
+    success:function(result){
+          alert(result);
+          window.location.reload();
+    }
+  });
+  });
+
+  $(document).on("click",".donebtn", function(){
+    $.ajax({
+    url:"done.php",
+    type:"POST",
+    data:{
+      done: $(this).val()
+    },
+    success:function(result){
+          alert(result);
+          window.location.reload();
+    }
+  });
+  });
+
+  });
+</script>
+</body>
 </html>

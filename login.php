@@ -1,25 +1,20 @@
 <?php
 session_start();
-
-if(isset($_SESSION["em"]))  
-{  
-    header("location:welcome.php");  
-}
-
-else if(!isset($_SESSION["em"]))  
-{  
-    header("location:index.php");  
-}
  
 function check()
 {  
 
 if(empty($_POST['em']) || empty($_POST['psr']))
 {
-    header("location:index.php");  
+   echo "Please Fill both the Fields";
 }
 
-else if(isset($_POST["submit"]))
+else if(!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix",$_POST['em']))
+{
+  echo "Enter valid Mail Format";
+}
+
+else if(isset($_POST["em"]) && isset($_POST["psr"]))
 {
 require_once('loginconfig.php');
 $email= $_POST['em'];
@@ -38,14 +33,15 @@ try {
         $_SESSION["em"] = $email;
         $_SESSION["username"] = $checkuser;
         $_SESSION["id"] = $checkid;
-        header("location:welcome.php");
+        echo "Success";
     }
     else {
-        throw new Exception(header("location:loginerror.php"));   
+        throw new Exception("Username or Password Incorrect" );   
     }
-}catch(Exception $e) {        
-    $e->getMessage();    
+}catch(Exception $e) {
+    echo 'Message: ' .$e->getMessage();           
 }
+
 }
  
 }check();

@@ -6,40 +6,43 @@ $first = $_POST['firstname'];
 $length_pass = strlen($_POST['psr']);
 $length_user = strlen($_POST['usr']);
 $email = $_POST["email"];
+$agecheck = $_POST["age"];
 require_once('signupconfig1.php');
+
 
 if(empty($_POST['firstname']) || empty($_POST['email']) || empty($_POST['usr']) || empty($_POST['psr']) || empty($_POST['dob']) || empty($_POST['age']))
 {
-      header("location:register.php");  
+      echo "Please fill all the Details";  
 }
 
 else if(!preg_match('/^[a-zA-Z\s]*$/',$first))
 {
-  header("location:register.php");
+  echo "Name only be characters";  
 }
 
-else if($length_pass <= 6)
+else if($length_pass <= 4)
 {
-  header("location:register.php");
-}
-
-else if($length_user >= 6)
-{
-  header("location:register.php");
+  echo "Password mustbe atleast 4 characters";  
 }
 
 else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
 {
-    header("location:register.php");
+  echo "Enter a valid email address";  
 }
 
 else if($checkemail == $email)
 {
-    header("location:signuperror.php");
+   echo "Entred email already exists";
 }
-  
-else if(isset($_POST['submit']))
+
+else if($agecheck <= 0)
 {
+   echo "Age must be above 1";
+}
+
+else 
+{
+  
   require_once('signupconfig.php');
   $firstname = $_POST['firstname'];
   $email  = $_POST['email'];
@@ -52,7 +55,7 @@ else if(isset($_POST['submit']))
   $sql="INSERT into users_table(firstname, email, username, pass_word, dob, age) VALUES(?,?,?,?,?,?)";
   $stmtinsert = $db->prepare($sql);
   $result=$stmtinsert->execute([$firstname, $email, $username, $pass_word, $dob, $age]);
-  header("location:login.php");
+  echo "Registered Successfully";
 
 }
 
