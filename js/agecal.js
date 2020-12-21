@@ -1,3 +1,4 @@
+
 function calculateAge(date) 
 {
   const now = new Date();
@@ -11,7 +12,6 @@ var picker = new Pikaday({
   yearRange:[1900,2020],
   onSelect: function(date) {
   let age = calculateAge(date);
-  console.log(age);
   document.getElementById('age').value = age ;
-  }   
-});
+  }                        
+}); 

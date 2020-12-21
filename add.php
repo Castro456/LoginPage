@@ -39,28 +39,6 @@
 </div>
 
 </form>
-<script>
-/*
-List all tasks in table using JS (ajax) instead of php get
-Put individual buttons done and delete for each task
-If done is clicked respective task should be marked as done
-If delete is clicked respective task should be marked as delete
-All the above activities should be done by ajaz only
-*/
-        document.getElementById("addform").addEventListener("submit",addtext);
-        function addtext(e){
-        e.preventDefault();
-        var text = document.getElementById("text").value;
-        var pro="add1="+text;
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST","addconfig.php",true);
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.onload = function(){
-            document.getElementById("text").value = '';
-            alert(this.responseText);
-           }
-        xhr.send(pro);
-        }
-</script>
+<script src="./js/add.js"></script>
 </body>
 </html>

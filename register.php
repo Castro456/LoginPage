@@ -61,60 +61,25 @@ if(isset($_SESSION["em"]))
 
 <div class="col-md-3 mb-3">
 <label class="text-dark">DateofBirth</label>
-<input type="text" class="form-control datepicker dob"  readonly placeholder="Provide your DOB">
-<!-- id="date-input" onchange="calAge()" -->
+<input type="text" class="form-control  dob1" id="dob" readonly placeholder="Provide your DOB">
 </div>
 
 <div class="col-md-3 mb-3">
 <label class="text-dark">Age</label>
-<!-- <input type="number" class="form-control" id="age" min="1" oninput="this.value = Math.abs(this.value)"> -->
-<input type="text" class="form-control age"  placeholder="Age must be atleast 1" readonly>
+<input type="text" class="form-control age" id="age" placeholder="Age must be atleast 1" readonly>
 </div>
 </div>
 
 <div class="col-md-12 mb-3">
 <button  class="btn btn-success btn-block rounded-pill" >Create</button>
 </div>
-
-<div id="display">
-</div>
-<!-- class="btn btn-success btn-block rounded-pill"  -->
 </form>
 </div>
 </div>
 <script src="./js/pikaday.js"></script>
 <script src="./js/jquery.js"></script>
-<script src="./js/agecal.js"></script>
-
-<script type="text/javascript">
- $(document).ready(function(){ 
-  $(document).on("click","button", function(){
-
-    var firstname = $(".firstname").val();
-    var email = $(".email").val();
-    var usr = $(".usr").val();
-    var psr = $(".psr").val();
-    var dob = $(".dob").val();
-    var age = $(".age").val();
-    console.log(firstname);
-    $.ajax({
-    url:"signup.php",
-    type:"POST",
-    data:{
-      firstname: firstname,
-      email: email,
-      usr: usr,
-      psr: psr,
-      dob: dob,
-      age: age
-    },
-    success:function(result){
-           alert(result);
-    },
-
-  });
-  });
- });
+<script src="./js/agecal.js">
 </script>
+<script src="./js/register.js"></script>
 </body>
 </html>
