@@ -12,7 +12,7 @@ if(isset($_POST['done']))
 }
 
 else{
-    header("location:index.php");
+    echo "Error Occured";
 }
 
 ?>

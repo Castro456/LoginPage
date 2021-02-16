@@ -16,13 +16,14 @@ else if(!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
 
 else if(isset($_POST["em"]) && isset($_POST["psr"]))
 {
-require_once('loginconfig.php');
+
 $email= $_POST['em'];
 $pass_word= $_POST['psr'];
 $pass_word= md5($pass_word);
 
+$conn =mysqli_connect('localhost','root','giveaccess','mydata');                                            
 $query="SELECT id,email,username,pass_word FROM `users_table` where email ='$email' ";       
-$query_run=mysqli_query($con,$query);
+$query_run=mysqli_query($conn,$query);
 $query_execute=mysqli_fetch_assoc($query_run);  
 $checkpass= @$query_execute['pass_word'];
 $checkuser=@$query_execute['username'];

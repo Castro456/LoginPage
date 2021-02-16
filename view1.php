@@ -16,17 +16,21 @@
     {
       while($rows=mysqli_fetch_assoc($result))  
     { ?>
-    <tr>
-    <td class="table-primary"><?php echo $rows['id'] ?></td>   
-    <td class="table-warning"><?php echo $rows['task'] ?></td>
-    <td class="table-info"><?php echo $rows['time_kept'] ?></td>
-    <td class="table-success"><?php echo $rows['username'] ?></td>
-    <td class="table-dark"><?php echo $rows['progress'] ?></td>  
+    <tr id= "<?= $rows['id'];?>">
+    <td class="table-warning" data-target="task"><?php echo $rows['task'] ?></td>
+    <td class="table-info" data-target="time"><?php echo $rows['time_kept'] ?></td>
+    <td class="table-success"  data-target="username"><?php echo $rows['username'] ?></td>
+    <td class="table-dark"  data-target="progress"><?php echo $rows['progress'] ?></td>  
+    <td  class="table-warning">
+    <button type="button" class="btn btn-warning rounded-pill editbtn" data-toggle="modal"  
+    data-role="update"
+    data-id="<?=$rows['id'];?>">Update</button>
+    </td>
     <td class="table-danger">
-    <button  class="viewbtn" value="<?php echo $rows['id']?>">Delete </button>
+    <button  class="btn btn-danger rounded-pill deletebtn" value="<?php echo $rows['id']?>">Delete </button>
     </td>
     <td class="table-success">
-    <button  class="donebtn" value="<?php echo $rows['id']?>">Done </button>
+    <button  class="btn btn-success rounded-pill donebutton " value="<?php echo $rows['id']?>">Done </button>
     </td>
     </tr>
     <?php

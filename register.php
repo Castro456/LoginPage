@@ -16,6 +16,7 @@ if(isset($_SESSION["em"]))
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/global.css">
 <link rel="stylesheet" type="text/css" href="css/pikaday.css">
+<link href="css/toastr.scss" rel="stylesheet"/>
 <title>SignUp</title>
 </head>
 <body>
@@ -71,15 +72,15 @@ if(isset($_SESSION["em"]))
 </div>
 
 <div class="col-md-12 mb-3">
-<button  class="btn btn-success btn-block rounded-pill" >Create</button>
+<button  class="btn btn-success btn-block rounded-pill create" >Create</button>
 </div>
 </form>
 </div>
 </div>
 <script src="./js/pikaday.js"></script>
 <script src="./js/jquery.js"></script>
-<script src="./js/agecal.js">
-</script>
+<script src="./js/agecal.js"></script>
+<script src="./js/toastr.js"></script>
 <script src="./js/register.js"></script>
 </body>
 </html>

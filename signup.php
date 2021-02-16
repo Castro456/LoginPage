@@ -7,6 +7,7 @@ $length_pass = strlen($_POST['psr']);
 $length_user = strlen($_POST['usr']);
 $email = $_POST["email"];
 $agecheck = $_POST["age"];
+
 require_once('signupconfig1.php');
 
 
@@ -40,10 +41,10 @@ else if($agecheck <= 0)
    echo "Age must be above 1";
 }
 
-else 
+else if($_POST['firstname'])
 {
   
-  require_once('signupconfig.php');
+  $conn =mysqli_connect("localhost","root","giveaccess","mydata");
   $firstname = $_POST['firstname'];
   $email  = $_POST['email'];
   $username= $_POST['usr'];
@@ -52,10 +53,16 @@ else
   $dob       = $_POST['dob'];
   $age       = $_POST['age'];
 
-  $sql="INSERT into users_table(firstname, email, username, pass_word, dob, age) VALUES(?,?,?,?,?,?)";
-  $stmtinsert = $db->prepare($sql);
-  $result=$stmtinsert->execute([$firstname, $email, $username, $pass_word, $dob, $age]);
-  echo "Registered Successfully";
+  $sql="INSERT into users_table(firstname, email, username, pass_word, dob, age) VALUES('".$firstname."', '".$email."', '".$username."', '".$pass_word."', '".$dob."', '".$age."')";
+
+  if(mysqli_query($conn, $sql))
+{
+    echo "Registered Successfully can Login Now";
+}
+else
+{
+    echo "Registration UnSuccessful";
+}
 
 }
 

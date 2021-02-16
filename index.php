@@ -18,6 +18,7 @@ if(isset($_SESSION["em"]))
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/global.css">
+<link href="css/toastr.scss" rel="stylesheet"/>
 <title>Log In</title>
 </head>
 
@@ -49,7 +50,7 @@ if(isset($_SESSION["em"]))
 <label class="text-dark">Password</label>
 <input type="password" class="form-control" name="psr" id="pass">
 </div> 
- <button  class="btn btn-success btn-block rounded-pill" id="log">Submit</button>
+ <button  class="btn btn-success btn-block rounded-pill" id="log">Login</button>
 </form>
 
 </div>
@@ -57,5 +58,6 @@ if(isset($_SESSION["em"]))
 </div>
 <script src="./js/jquery.js"></script>
 <script src="./js/index.js"></script>
+<script src="./js/toastr.js"></script>
 </body>
 </html>

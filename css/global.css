@@ -104,7 +104,22 @@ body
     border-width: 10px ; */
     border-color: #FF6961; 
 }
-.viewbtn
+.editbtns
+{
+    background-color: #e3f035; 
+    position: fixed ;
+    /* top: 65%;
+    left: 39%; */
+    border: none;
+    border-radius: 40px;
+    color: black;
+    padding: 4px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+}
+.deletebtns
 {
     background-color: #FF0000; 
     position: fixed ;
@@ -113,13 +128,13 @@ body
     border: none;
     border-radius: 40px;
     color: black;
-    padding: 3px 20px;
+    padding: 4px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 13px;
 }
-.donebtn
+.donebuttons
 {
     background-color: #4bcc4b; 
     position: fixed ;
@@ -128,9 +143,9 @@ body
     border: none;
     border-radius: 40px;
     color: black;
-    padding: 3px 20px;
+    padding: 4px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 13px;
 }

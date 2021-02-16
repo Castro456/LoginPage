@@ -1,5 +1,7 @@
 $(document).ready(function(){ 
-    $("#log").click( function(){
+  $(document).on("click","#log", function(){
+      $("#log").attr("disabled", true);
+      $("#log").text("Login...");
     var email = $("#email").val();
     var pass = $("#pass").val();
     $.ajax({
@@ -10,7 +12,31 @@ $(document).ready(function(){
       psr : pass
     },
     success:function(result){
-          alert(result);
+      $("#log").attr("disabled", false);
+      $("#log").text("Login");
+      if(result == "Please Fill both the Fields"){
+        toastr.warning(result);
+        }
+        else if(result == "Enter valid Mail Format")
+        {
+        toastr.warning(result);
+        }
+        else if(result == "Message: Username or Password Incorrect")
+        {
+        toastr.warning(result);
+        }
+        else if(result == "Success")
+        {
+        toastr.success(result);
+        window.setTimeout(function(){
+          location.reload();
+        },800);
+        }
+        else{
+          toastr.error("Problem Occured");
+        }
+
+      
     }
   });
   });

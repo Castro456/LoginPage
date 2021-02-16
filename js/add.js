@@ -1,14 +1,30 @@
-document.getElementById("addform").addEventListener("submit",addtext);
-function addtext(e){
-e.preventDefault();
-var text = document.getElementById("text").value;
-var pro="add1="+text;
-var xhr = new XMLHttpRequest();
-xhr.open("POST","addconfig.php",true);
-xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-xhr.onload = function(){
-    document.getElementById("text").value = '';
-    alert(this.responseText);
-   }
-xhr.send(pro);
-}
+
+$(document).ready(function(){ 
+    $(document).on("click","#addbtn", function(){
+        $("#addbtn").attr("disabled", true);
+        $("#addbtn").text("Adding...");
+      var text = $("#text").val();
+      $.ajax({
+      url:"addconfig.php",
+      type:"POST",
+      data:{
+        add1: text
+      },
+      success:function(result){
+        $("#addbtn").attr("disabled", false);
+        $("#addbtn").text("Add");
+        $("#text").val("");
+        if(result == "Enter a task to ADD"){
+        toastr.warning(result);
+        }
+        else if(result == "Task Added")
+        {
+        toastr.success(result);
+        }
+        else{
+          toastr.error("Problem Occured");
+        }
+      }
+    });
+    });
+  });

@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Task</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link href="css/toastr.scss" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="css/global.css">
 </head>
 <body>
@@ -20,7 +21,8 @@
     <a class="navbar-brand" href="welcome.php">Back</a>
 </nav>
 
-<div class="alert-success" id="display">
+<div class="alert-success" id="msg">
+
 </div> 
 
 <div class="container ">
@@ -32,13 +34,15 @@
  </div>
   
  <div class="align-self-end ml-auto">
-<button type="submit" class="addbtn " name="addbtn" >Add</button>
+<button type="submit" class="btn btn-danger rounded-pill " id="addbtn" >Add</button>
 
 </div>
 </div>
 </div>
 
 </form>
+<script src="./js/jquery.js"></script>
 <script src="./js/add.js"></script>
+<script src="./js/toastr.js"></script>
 </body>
 </html>
