@@ -1,13 +1,11 @@
-<?php  
- 
-session_start();  
-if(!isset($_SESSION["em"]))  
+<?php
+session_start();
+if(!isset($_SESSION["username"]))  
 {  
-     header("location:index.php");  
+    header("location:login.php");  
 }  
+?>
 
-?> 
-  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,19 +17,18 @@ if(!isset($_SESSION["em"]))
 <link rel="stylesheet" type="text/css" href="css/global.css">
 
 </head>
-
 <body>
 
 <nav class="navbar navbar-light" style="background-color: #d1dbda">
 <a class="navbar-brand" href="home.html">Home</a>
 <a class="btn btn-danger my-2 my-sm-0 rounded-pill" href="logout.php" role="button">Logout</a>
-</nav> 
+</nav>
 
 <div class="container ">
 <div class="row justify-content-center">  
 <div class="col-md-9"> 
 <div class="form-group">
-<h1 class="text-correct">WELCOME:  <?php echo $_SESSION["username"] ?></h1>
+<h1 class="text-correct">WELCOME:  <?php echo $_SESSION["username"] ?>  </h1>
 </div>
 
 <div class="form-group">
@@ -49,9 +46,6 @@ if(!isset($_SESSION["em"]))
 </div>
 </div>
 </div>
-</div>
-<script>
-</script>
-</body>
 
+</body>
 </html>

@@ -1,9 +1,8 @@
 <?php
-
 session_start();  
-if(!isset($_SESSION["em"]))  
+if(!isset($_SESSION["username"]))  
 {  
-    header("location:index.php");  
+    header("location:login.php");  
 }
 
 ?>
@@ -37,7 +36,7 @@ if(!isset($_SESSION["em"]))
 </tr>
 <tr>
   <th scope="col">Task</th>
-  <th scope="col">Date</th>
+  <th scope="col">Date/Time</th>
   <th scope="col">User</th>
   <th scope="col">Status</th>
   <th scope="col">Edit</th>
